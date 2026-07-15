@@ -33,6 +33,25 @@ public struct ArrangementOutcome: Equatable, Sendable {
         self.skippedCount = skippedCount
         self.restoredCount = restoredCount
     }
+
+    public var headline: String {
+        switch status {
+        case .success:
+            "\(arrangedCount) windows · arranged"
+        case .partial:
+            "\(arrangedCount) arranged · \(skippedCount) stayed"
+        case .noWindows:
+            "No windows to arrange"
+        case .busy:
+            "Already arranging"
+        case .failed:
+            "Could not arrange windows"
+        case .undone:
+            "\(restoredCount) windows · restored"
+        case .nothingToUndo:
+            "Nothing to restore"
+        }
+    }
 }
 
 public actor ArrangementCoordinator {
