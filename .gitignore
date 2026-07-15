@@ -1,0 +1,7 @@
+.worktrees/
+.build/
+.swiftpm/
+.DS_Store
+dist/
+*.dmg
+DerivedData/
