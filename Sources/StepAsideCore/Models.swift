@@ -1,5 +1,19 @@
 import Foundation
 
+public enum SpacingPreference: String, CaseIterable, Equatable, Sendable {
+    case compact
+    case balanced
+    case airy
+
+    public var points: Double {
+        switch self {
+        case .compact: 8
+        case .balanced: 12
+        case .airy: 18
+        }
+    }
+}
+
 public struct WindowToken: Hashable, Codable, Sendable {
     public let pid: Int32
     public let windowID: UInt32
