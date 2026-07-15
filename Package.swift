@@ -10,7 +10,11 @@ let package = Package(
     ],
     targets: [
         .target(name: "StepAsideCore"),
-        .executableTarget(name: "StepAside", dependencies: ["StepAsideCore"]),
+        .executableTarget(
+            name: "StepAside",
+            dependencies: ["StepAsideCore"],
+            exclude: ["Resources"]
+        ),
         .testTarget(name: "StepAsideCoreTests", dependencies: ["StepAsideCore"]),
     ]
 )

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift version
+        run: swift --version
+      - name: Build
+        run: swift build
+      - name: Test
+        run: swift test
+      - name: Package universal ad-hoc app
+        run: bash scripts/build-app.sh
+      - name: Verify release executable
+        run: |
+          codesign --verify --deep --strict --verbose=2 dist/StepAside.app
+          if nm -u dist/StepAside.app/Contents/MacOS/StepAside | grep -E 'CGS|SLS|SkyLight'; then
+            echo "Private window API import detected" >&2
+            exit 1
+          fi
