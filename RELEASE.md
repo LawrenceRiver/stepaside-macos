@@ -50,9 +50,9 @@ Certificates, Apple credentials, notary profiles, and provisioning material must
 
 ## GitHub publication
 
-Recommended public repository name: `stepaside-macos`.
+The public repository is [LawrenceRiver/stepaside-macos](https://github.com/LawrenceRiver/stepaside-macos).
 
-After review, create the public repository, push the local `main` branch and the release tag, then attach `StepAside.dmg` plus its SHA-256 checksum to the GitHub release. Repository creation and pushing are intentionally not performed by build scripts.
+After review, push the verified `main` branch and release tag. Publish each release candidate as a GitHub prerelease for that tag and attach `StepAside.dmg`. Record the DMG's SHA-256 value in the release notes or attach a checksum file alongside the DMG. Build scripts intentionally do not use GitHub credentials or publish artifacts.
 
 ## 2026-07-16 local verification record
 
