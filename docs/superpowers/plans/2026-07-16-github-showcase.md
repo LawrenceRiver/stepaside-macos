@@ -11,6 +11,7 @@
 ## Global Constraints
 
 - The overview image contains only local dummy windows and no personal desktop data.
+- The overview provenance is an AX-trusted local showcase host invoking the repository's production `ArrangementCoordinator` and `LayoutEngine`; the packaged app was TCC-untrusted and did not trigger the captured arrangement.
 - Claims must match the tested macOS 14+, Swift 6, AppKit/SwiftUI implementation.
 - Public release binaries remain ad-hoc signed and must be labeled prerelease.
 - MIT licensing remains in the tracked root `LICENSE`.
@@ -23,12 +24,12 @@
 - Create: `docs/images/stepaside-overview.png`
 
 **Interfaces:**
-- Consumes: `dist/StepAside.app`, local dummy windows, current desktop only.
+- Consumes: the production `StepAsideCore.ArrangementCoordinator` and `StepAsideCore.LayoutEngine`, an AX-trusted local showcase host scoped to local dummy windows, and the current desktop only.
 - Produces: a GitHub-renderable PNG referenced by the README.
 
 - [ ] **Step 1:** Launch local dummy windows with non-sensitive labels.
-- [ ] **Step 2:** Run the actual StepAside arrange action.
-- [ ] **Step 3:** Capture only the dummy-window region and inspect the PNG for privacy and legibility.
+- [ ] **Step 2:** Invoke the repository's production `ArrangementCoordinator` and `LayoutEngine` through the AX-trusted local showcase host, and record that the packaged app itself could not arrange because macOS Accessibility/TCC was not authorized.
+- [ ] **Step 3:** Capture the real five-window result without conceptual compositing, then inspect the PNG for privacy and legibility.
 
 ### Task 2: README product page
 
