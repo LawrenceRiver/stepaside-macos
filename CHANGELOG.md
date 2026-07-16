@@ -2,7 +2,7 @@
 
 All notable changes to StepAside are documented here.
 
-## 1.0.0 - 2026-07-16
+## 1.0.0-rc1 - 2026-07-16
 
 ### Added
 
@@ -13,4 +13,3 @@ All notable changes to StepAside are documented here.
 - Native menu-bar controls, nonactivating result HUD, onboarding, settings, spacing choices, and Launch at Login.
 - Universal Apple Silicon and Intel app packaging with original icon and DMG scripts.
 - Local-only privacy model with no screen recording, telemetry, or network access.
-
